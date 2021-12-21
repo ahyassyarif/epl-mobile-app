@@ -1,0 +1,12 @@
+build/
+dist/
+server/
+root/
+node_modules/
+*-web/node_modules/
+*-web-dev/
+output*.json
+exported*.json
+.vscode
+.DS_Store
+stats.json

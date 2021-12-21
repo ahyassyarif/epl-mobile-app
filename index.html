@@ -1,0 +1,416 @@
+<!-- 
+@license
+Copyright (c) 2020 PT Geobit Solusi Teknologi. All rights reserved.
+ -->
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>petro_mon</title>
+		<meta name="generator" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="My App description">
+		<meta name="revised" content="Tuesday, July 28th, 2020, 9:20 pm" />
+		<base href="/petro_mon/">
+		<link rel="icon" href="images/favicon.ico">
+
+		<!-- See https://goo.gl/OOhYW5 -->
+		<link rel="manifest" href="manifest.json">
+
+		<!-- See https://goo.gl/qRE0vM -->
+		<meta name="theme-color" content="#3f51b5">
+
+		<!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="application-name" content="petro_mon">
+
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="default">
+		<meta name="apple-mobile-web-app-title" content="My App">
+
+		<!-- Homescreen icons -->
+		<link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
+
+		<!-- Tile icon for Windows 8 (144x144 + tile color) -->
+		<meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+		<meta name="msapplication-TileColor" content="#3f51b5">
+		<meta name="msapplication-tap-highlight" content="no">
+
+		<!-- Default twitter cards -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:site" content="@username">
+		<meta property="og:type" content="website">
+		
+		<!-- "AppName" is in "app-name" format -->
+		<meta property="og:site_name" content="petro_mon">
+		
+		<meta property="og:image" content="images/manifest/icon-144x144.png" />
+
+		<!-- Performance tip: hint to the browser to start the handshake for the fonts site -->
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		<script>
+			// Set rootPath
+			// window.Polymer = {rootPath: '/petro_mon/'};
+			// Load and register pre-caching Service Worker
+			if ('serviceWorker' in navigator) {
+				window.addEventListener('load', function() {
+					navigator.serviceWorker.register('service-worker.js', {
+						scope: "/petro_mon/",
+					});
+				});
+			}
+
+			// Redux assumes `process.env.NODE_ENV` exists in the ES module build.
+			// https://github.com/reactjs/redux/issues/2907
+			window.process = { env: { NODE_ENV: 'production' } };
+		</script>
+
+		<!-- Add any global styles for body, document, etc. -->
+		<style>
+			/* typography */
+			/* roboto-regular - latin */
+			@font-face {
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 400;
+				src: url('fonts/roboto-v20-latin-regular.eot'); /* IE9 Compat Modes */
+				src: local('Roboto'), local('Roboto-Regular'),
+						url('fonts/roboto-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+						url('fonts/roboto-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+						url('fonts/roboto-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+						url('fonts/roboto-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+						url('fonts/roboto-v20-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+			}
+			/* roboto-300 - latin */
+			@font-face {
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 300;
+				src: url('fonts/roboto-v20-latin-300.eot'); /* IE9 Compat Modes */
+				src: local('Roboto Light'), local('Roboto-Light'),
+						url('fonts/roboto-v20-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+						url('fonts/roboto-v20-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+						url('fonts/roboto-v20-latin-300.woff') format('woff'), /* Modern Browsers */
+						url('fonts/roboto-v20-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+						url('fonts/roboto-v20-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+			}
+			/* roboto-slab-regular - latin */
+			@font-face {
+				font-family: 'Roboto Slab';
+				font-style: normal;
+				font-weight: 400;
+				src: url('fonts/roboto-slab-v9-latin-regular.eot'); /* IE9 Compat Modes */
+				src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+						url('fonts/roboto-slab-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+						url('fonts/roboto-slab-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+						url('fonts/roboto-slab-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+						url('fonts/roboto-slab-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+						url('fonts/roboto-slab-v9-latin-regular.svg#RobotoSlab') format('svg'); /* Legacy iOS */
+			}
+			@font-face {
+				font-family: 'Material Icons';
+				font-style: normal;
+				font-weight: 400;
+				src: url(fonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+				src: local('Material Icons'),
+					local('MaterialIcons-Regular'),
+					url(fonts/MaterialIcons-Regular.woff2) format('woff2'),
+					url(fonts/MaterialIcons-Regular.woff) format('woff'),
+					url(fonts/MaterialIcons-Regular.ttf) format('truetype');
+			}
+			@font-face {
+				font-family: 'md-icons';
+				src:  local('Material Icons'), local('MaterialIcons-Regular'), url('fonts/md-icons.woff2') format('woff2'), url('fonts/md-icons.woff') format('woff');
+			}
+			@font-face {
+				font-family: 'open-sans';
+				font-style: normal;
+				font-weight: 400;
+				src: local('Open Sans Regular'), local('OpenSans-Regular'), url('fonts/open-sans-regular.woff2') format('woff2'), url('fonts/open-sans-regular.woff') format('woff');
+			}
+			@font-face {
+				font-family: 'open-sans';
+				font-style: normal;
+				font-weight: 600;
+				src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'), url('fonts/open-sans-semibold.woff2') format('woff2'), url('fonts/open-sans-semibold.woff') format('woff');
+			}
+			@font-face {
+				font-family: 'open-sans';
+				font-style: normal;
+				font-weight: 700;
+				src: local('Open Sans Bold'), local('OpenSans-Bold'), url('fonts/open-sans-bold.woff2') format('woff2'), url('fonts/open-sans-bold.woff') format('woff');
+			}
+			html, body {
+				margin: 0;
+				font-family: 'roboto','open-sans',sans-serif,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+				/* font-style: normal; */
+				/* font-weight: 400; */
+				/* font-size: 14px; */
+				line-height: 1.5;
+				/* min-height: 100vh; */
+				height: 100%;
+				width: 100%;
+				/* overflow: hidden; */
+				overflow: auto;
+				-webkit-tap-highlight-color: transparent;
+				-webkit-font-smoothing: antialiased;
+				text-rendering: optimizeLegibility;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			/* scrollbar */
+			*::-webkit-scrollbar {
+				width: 8px;
+				height: 8px;
+				background-color: transparent;
+				visibility: hidden;
+			}
+			*::-webkit-scrollbar-track {
+				background-color: rgba(var(--neutral-1), .05);
+				border-radius: 8px;
+			}
+			*::-webkit-scrollbar-thumb {
+				background-color: rgba(var(--neutral-1), .10);
+				border-radius: 8px;
+			}
+			*::-webkit-scrollbar-thumb:active,
+			*::-webkit-scrollbar-thumb:hover {
+				background-color: rgba(var(--neutral-1), .20)
+			}
+			.app-update {
+				display: none;
+			}
+			.app-update.show {
+				display: block;
+			}
+			.element-hide {
+				display:none;
+			}
+			.element-hide[true] {
+				display:block;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="bulma.css">
+		<link rel="stylesheet" href="./node_modules/lit-fontawesome/css/font.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.min.css"> -->
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+		<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+	</head>
+	<body>
+		<my-app class="element-hide" appTitle="petro_mon"></my-app>
+		<div id="login-form" style="background-color: #FEFEFE;">
+			<div style="padding:100px 4px 4px 4px;display:flex;flex-flow:row wrap;align-items:flex-start;justify-content:center;">
+				<div style="position:relative;border:1px solid rgba(0,0,0,0.2);transition:0.3s;width:100%;max-width:400px;background-color:#fff;box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+					<div style="padding:4px;display: flex;flex-flow: column nowrap;align-items:center;">
+						<div style="display:flex;flex-flow:row wrap;align-items:center;width:100%;padding:16px 8px;justify-content:space-around;background:#f7f7f7;">
+							<img src="images/unilever_logo.svg" style="width:50%">
+						</div>
+						<form class="pt-2 pb-5" action='login' method='POST' slot="form" style="width:100%" autocomplete="on">
+							<div class="field">
+								<p class="control has-icons-left">
+									<input id="username" name="username" type="username" class="input" placeholder="Username" required>
+									<span class="icon is-left">
+										<i class="fas fa-user"></i>
+									</span>
+								</p>
+								<p id="username-help" class="help is-danger"></p>
+							</div>
+							<div class="field">
+								<div style="display:flex;flex-flow:row nowrap;align-items:center;width:100%">
+									<div class="control has-icons-left" style="width:100%">
+										<input id="password" name="password" type="password" class="input" placeholder="Password" required>
+										<span class="icon is-left">
+											<i class="fas fa-key"></i>
+										</span>
+									</div>
+									<div class="icon" onclick="togglePwdVisible()" style="margin-left:-28px;z-index:2;cursor:pointer;color:#a6a6a6;">
+										<i id="pw-show" class="fas fa-eye"></i>
+									</div>
+								</div>
+								<p id="password-help" class="help is-danger"></p>
+							</div>
+							<div class="control pt-3" style="width:100%">
+								<button type="button" class="button is-primary" onclick="_login()" style="width:100%">LOGIN</button>
+							</div>
+						</form>
+
+						<p id="login-text-message" class="has-text-weight-semibold has-text-danger is-size-7 pt-1 pb-3 element-hide">Login failed..!</p>
+
+						<div class="field pl-3" style="width:100%;">
+							<div class="control">
+								<label class="checkbox" for="advanced-settings-check">
+									<input type="checkbox" id="advanced-settings-check" onchange="toggleVisibility('adv-settings')">
+									<span style="padding-left:5px;">Advanced Settings</span>
+								</label>
+							</div>
+						</div>
+						<div id="adv-settings" class="element-hide" style="width:100%">
+							<div class="field">
+								<p class="control has-icons-left">
+									<input id="host-override-url" name="host-override-url" type="text" class="input" placeholder="Enter Host Override URL" required>
+									<span class="icon is-left">
+										<i class="fas fa-cloud"></i>
+									</span>
+								</p>
+							</div>
+							<div class="field pl-3">
+								<div class="control">
+									<label class="checkbox" for="use-override-url-check">
+										<input type="checkbox" id="use-override-url-check">
+										<span style="padding-left:5px;">Override Host</span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="width: 100%;padding: 0 8px;text-align: right;color: #a0a0a0;font-family: Roboto;font-size: 10px;font-weight: normal;">
+						petro_mon v1.010
+					</div>
+				</div>
+			</div>
+		</div>
+		<noscript>
+			Please enable JavaScript to view this website.
+		</noscript>
+		<script>
+			let _settings = localStorage.getItem("petro_mon-settings");
+			if (!!_settings) {
+				_settings = JSON.parse(_settings);
+				if (!!_settings.host) {
+					document.getElementById("host-override-url").value = _settings.host;
+				}
+			}
+			if (!_settings?.user)	{
+				if (!_settings) _settings = {};
+				_settings.user = {
+						"id": 1,
+						"username": "remote_device",
+						"fullname": "Remote Device",
+						"roles": [
+								"admin",
+								"data_admin"
+						],
+						"state": 1,
+						"email": "",
+						"phone1": "",
+						"phone2": "",
+						"website": "",
+						"profile-picture": "",
+						"authenticated": true,
+						"token": "f021002f4249c4acbbbec8026611f8a5"
+				}
+				localStorage.setItem("petro_mon-settings", JSON.stringify(_settings));
+			}
+			if (!!_settings.user && _settings.user?.authenticated) {
+				document.getElementById("login-text-message").classList.add("element-hide");
+				document.getElementById("login-form").classList.add("element-hide");
+				document.querySelector("my-app").classList.remove("element-hide");
+			}
+		</script>
+		<script>
+			function toggleVisibility(id) {
+				document.getElementById(id).classList.toggle("element-hide");
+				document.getElementById("username-help").classList.toggle("element-hide");
+			}
+
+			function togglePwdVisible() {
+				var e = document.getElementById("password");
+				var p = document.getElementById("pw-show")
+				if (e.type == "text") {
+					e.type = "password";
+				}
+				else {
+					e.type = "text";
+				}
+				p.classList.toggle("fa-eye");
+				p.classList.toggle("fa-eye-slash");
+			}
+
+			async function _login() {
+				const _usr = document.getElementById("username").value;
+				const _pwd = document.getElementById("password").value;
+				if (!_usr || !_pwd) {
+					document.getElementById("login-text-message").innerText = "Username & Password required";
+					document.getElementById("login-text-message").classList.remove("element-hide");
+					return;
+				}
+				const _a = document.getElementById("advanced-settings-check").checked;
+				const _o = document.getElementById("use-override-url-check").checked;
+				const _h = document.getElementById("host-override-url").value;
+				let userdata = {};
+				let _url = (!!_a && !!_o? _h : '/petro_mon') + "/api/login/";
+				let _d = { username: _usr, password: _pwd };
+				let _data = {
+						method: "POST",
+						body: JSON.stringify(_d)
+					};
+				try {
+					let res = await fetch(_url, _data);
+					let code = res.status;
+					if (res.ok && code == 200) {
+						userdata = await res.json();
+						// check user
+						_d = userdata;
+						_data = {
+							method: "GET",
+							mode: "cors",
+							headers: {
+							"Authorization": _d.token,
+							}
+						}
+						_url = (!!_a && !!_o? _h : '/petro_mon') + "/api/whoami/";
+						res = await fetch(_url, _data);
+						code = res.status;
+						if (res.ok && code == 200) {
+							userdata = await res.json();
+							userdata.authenticated = true;
+							userdata.token = _d.token;
+							let _settings = localStorage.getItem("petro_mon-settings");
+							if (!_settings) {
+								_settings = {};
+							}
+							else {
+								_settings = JSON.parse(_settings);
+							}
+							_settings.user = userdata;
+							if (!!_a && !!_o) {
+								_settings.host = _h;
+							}
+							else {
+								_settings.host = window.location.href;
+								if (_settings.host.endsWith('/')) {
+									_settings.host = _settings.host.substring(0, _settings.host.length-1);
+								}
+							}
+							localStorage.setItem("petro_mon-settings", JSON.stringify(_settings));
+						}
+					}
+					else {
+						console.error("Login failed");
+					}
+				}
+				catch (e) {
+					console.error("Error: ", e);
+				}
+				if (userdata.authenticated) {
+					document.getElementById("login-text-message").classList.add("element-hide");
+					document.getElementById("login-form").classList.add("element-hide");
+					document.querySelector("my-app").classList.remove("element-hide");
+					document.querySelector("my-app").setAttribute("user", JSON.stringify(userdata));
+				}
+				else {
+					document.getElementById("login-text-message").innerText = "Login failed..!";
+					document.getElementById("login-text-message").classList.remove("element-hide");
+				}
+			}
+		</script>
+		<script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+		<script type="module" src="src/components/my-app.js"></script>
+	</body>
+</html>

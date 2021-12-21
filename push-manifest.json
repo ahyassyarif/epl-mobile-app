@@ -1,0 +1,146 @@
+{
+	"/": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/home.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/home": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/home.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/login": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/login.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/logout": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/logout.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/settings": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/settings-view.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/user_table_view": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/user_table_view.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/user_detail_view": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/user_detail_view.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/data": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/data.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	},
+	"/data_detail": {
+		"src/components/my-app.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"src/components/data_detail.js": {
+			"crossorigin": "anonymous",
+			"type": "script",
+			"weight": 1
+		},
+		"node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js": {
+			"type": "script",
+			"weight": 1
+		}
+	}
+}
